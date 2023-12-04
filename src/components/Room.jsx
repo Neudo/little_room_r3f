@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useRef, useState} from 'react';
 import FloorLamp from "./models/floorLamp.jsx";
 import {useTexture} from "@react-three/drei";
+import {EffectComposer, Outline, Select, Selection} from "@react-three/postprocessing";
 
 function Room() {
+    const [enabled, setEnabled] = useState(false)
 
     const beton = "#81817d"
     const floorTextures = useTexture({
@@ -16,6 +18,7 @@ function Room() {
 
     return (
         <>
+
             <mesh receiveShadow position={ [0, .9, -2] }>
                 <boxGeometry args={ [5.50,2,.2] } />
                 <meshStandardMaterial color={beton} />
@@ -36,8 +39,25 @@ function Room() {
                 <meshStandardMaterial color={beton} />
             </mesh>
 
+            <Selection>
+                <EffectComposer
+                    enabled={enabled}
+                    autoClear={false}
 
-            <FloorLamp/>
+                >
+                    <Outline
+                        edgeStrength={5}
+                        pulseSpeed={10}
+                    />
+                </EffectComposer>
+                <Select enabled >
+                    <group onPointerEnter={() => setEnabled(true)} onPointerLeave={() => setEnabled(false)}>
+                        <FloorLamp/>
+                    </group>
+                </Select>
+            </Selection>
+
+
 
         </>
     );
