@@ -1,5 +1,5 @@
 import {Environment, OrbitControls} from '@react-three/drei'
-import Room from "./component/Room.jsx";
+import Room from "./components/Room.jsx";
 
 
 export default function Experience()
@@ -7,7 +7,7 @@ export default function Experience()
     return <>
         <OrbitControls makeDefault />
 
-        <Environment preset="city" />
+        <Environment preset="apartment" />
         <color args={['#0a132a']} attach="background"/>
 
         <Room/>
