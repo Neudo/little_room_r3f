@@ -8,8 +8,9 @@ import * as THREE from 'three'
 
 function FloorLamp() {
     const { position, intensity, distance, angle, attenuation, anglePower, rotation } = useControls({
-        position: [-2,1.7,-1.7],
-        intensity: 40,
+        // position: [-2,1.7,-1.7],
+        position: [-2.2,2.29,-1.7],
+        intensity: 18,
     })
     const floorLamp = useLoader(GLTFLoader, './glb/floor_lamp.glb')
     const [shiny, setShiny] = useState(true)

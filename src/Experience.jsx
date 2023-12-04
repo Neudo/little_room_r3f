@@ -10,6 +10,9 @@ export default function Experience()
         <Environment preset="apartment" />
         <color args={['#0a132a']} attach="background"/>
 
+        <ambientLight
+            intensity={.5}
+        />
         <Room/>
 
 

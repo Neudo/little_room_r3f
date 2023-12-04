@@ -1,9 +1,18 @@
 import React from 'react';
 import FloorLamp from "./models/floorLamp.jsx";
+import {useTexture} from "@react-three/drei";
 
 function Room() {
 
     const beton = "#81817d"
+    const floorTextures = useTexture({
+            map: './textures/WoodFlooringAshSuperWhite001/WoodFlooringAshSuperWhite001_COL_2K.jpg',
+            aoMap: './textures/WoodFlooringAshSuperWhite001/WoodFlooringAshSuperWhite001_AO_2K.jpg',
+            normalMap: './textures/WoodFlooringAshSuperWhite001/WoodFlooringAshSuperWhite001_NRM_2K.png',
+            envMap: './textures/WoodFlooringAshSuperWhite001/WoodFlooringAshSuperWhite001_REFL_2K.jpg',
+            roughnessMap: './textures/WoodFlooringAshSuperWhite001/WoodFlooringAshSuperWhite001_GLOSS_2K.jpg',
+        }
+    )
 
     return (
         <>
@@ -19,7 +28,7 @@ function Room() {
 
             <mesh receiveShadow >
                 <boxGeometry args={ [5.5,.2,4] } />
-                <meshStandardMaterial color={beton} />
+                <meshStandardMaterial {...floorTextures} />
             </mesh>
 
 
