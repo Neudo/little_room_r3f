@@ -43,11 +43,12 @@ function Room() {
                 <EffectComposer
                     enabled={enabled}
                     autoClear={false}
-
+                    multisampling={8}
                 >
                     <Outline
-                        edgeStrength={5}
-                        pulseSpeed={10}
+                        blur
+                        edgeStrength={2.5}
+                        pulseSpeed={.3}
                     />
                 </EffectComposer>
                 <Select enabled >
@@ -56,9 +57,6 @@ function Room() {
                     </group>
                 </Select>
             </Selection>
-
-
-
         </>
     );
 }
