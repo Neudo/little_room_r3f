@@ -17,7 +17,7 @@ function Room() {
     return (
         <>
             <mesh receiveShadow position={ [0, .9, -2] }>
-                <boxGeometry args={ [5.5,2,.2] } />
+                <boxGeometry args={ [5.50,2,.2] } />
                 <meshStandardMaterial color={beton} />
             </mesh>
 
@@ -26,9 +26,14 @@ function Room() {
                 <meshStandardMaterial color={beton} />
             </mesh>
 
+            <mesh recieveShadow position={ [0,.105,0] }>
+                <boxGeometry args={ [5.499,.018,3.999] } />
+                <meshStandardMaterial {...floorTextures}/>
+            </mesh>
+
             <mesh receiveShadow >
                 <boxGeometry args={ [5.5,.2,4] } />
-                <meshStandardMaterial {...floorTextures} />
+                <meshStandardMaterial color={beton} />
             </mesh>
 
 
