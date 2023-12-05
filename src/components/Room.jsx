@@ -1,8 +1,9 @@
 import React, { useState} from 'react';
 import {useTexture} from "@react-three/drei";
 import { EffectComposer, Outline, Select, Selection, ToneMapping} from "@react-three/postprocessing";
-import Desk from "./models/Desk.jsx";
 import {FloorLamp} from "./models/FloorLamp.jsx";
+import {DeskTest} from "./models/DeskItems/Desk.jsx";
+import {Chair} from "./models/DeskItems/Chair.jsx";
 
 
 
@@ -58,11 +59,12 @@ function Room() {
                 </EffectComposer>
                 <Select enabled >
                     <group onPointerEnter={() => setEnabled(true)} onPointerLeave={() => setEnabled(false)}>
-                        <FloorLamp />
+                        <FloorLamp scale={.11} position={[ -2.1,0.15,-1.7 ]} />
                     </group>
+                     <Chair scale={0.01} position={[1,.19,1]}/>
                 </Select>
             </Selection>
-            <Desk />
+            <DeskTest/>
         </>
     );
 }

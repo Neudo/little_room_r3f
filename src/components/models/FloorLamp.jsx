@@ -25,8 +25,6 @@ export function FloorLamp(props) {
 
         <group {...props}
                dispose={null}
-               scale={.11}
-               position={[ -2.1,0.15,-1.7 ]}
                onPointerOver={() => set(true)} onPointerOut={() => set(false)}
                onPointerLeave={() => {set(false)} }
                onClick={() => {setShiny(!shiny)} }
