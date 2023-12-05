@@ -28,6 +28,10 @@ function Room() {
                 <boxGeometry args={ [5.50,2,.2] } />
                 <meshStandardMaterial color={beton} />
             </mesh>
+            <mesh receiveShadow position={ [0,1, -1.9] }>
+                <boxGeometry args={ [5.5,1.8,.001] } />
+                <meshStandardMaterial color="#2D2D2B" />
+            </mesh>
 
             <mesh receiveShadow position={ [2.65,.9,0] }>
                 <boxGeometry args={ [.2,2,4] } />
@@ -61,7 +65,7 @@ function Room() {
                     <group onPointerEnter={() => setEnabled(true)} onPointerLeave={() => setEnabled(false)}>
                         <FloorLamp scale={.11} position={[ -2.1,0.15,-1.7 ]} />
                     </group>
-                     <Chair scale={0.01} position={[1,.19,1]}/>
+                     {/*<Chair scale={0.01} position={[1,.19,1]}/>*/}
                 </Select>
             </Selection>
             <DeskTest/>
