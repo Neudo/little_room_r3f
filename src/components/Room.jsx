@@ -1,8 +1,8 @@
 import React, { useState} from 'react';
-import FloorLamp from "./models/FloorLamp.jsx";
 import {useTexture} from "@react-three/drei";
 import { EffectComposer, Outline, Select, Selection, ToneMapping} from "@react-three/postprocessing";
 import Desk from "./models/Desk.jsx";
+import {FloorLamp} from "./models/FloorLamp.jsx";
 
 
 
@@ -58,7 +58,7 @@ function Room() {
                 </EffectComposer>
                 <Select enabled >
                     <group onPointerEnter={() => setEnabled(true)} onPointerLeave={() => setEnabled(false)}>
-                        <FloorLamp castShadow />
+                        <FloorLamp />
                     </group>
                 </Select>
             </Selection>
