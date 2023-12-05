@@ -2,13 +2,13 @@ import './style.css'
 import ReactDOM from 'react-dom/client'
 import { Canvas } from '@react-three/fiber'
 import Experience from './Experience.jsx'
-import {Float} from "@react-three/drei";
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 
 root.render(
     <Canvas
         className="r3f"
+        shadows
         camera={ {
             fov: 45,
             near: 0.1,

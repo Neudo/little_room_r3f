@@ -2,7 +2,7 @@ import React, {useRef, useState} from 'react';
 import { useLoader } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import {useControls} from "leva";
-import {ContactShadows, SpotLight, useCursor, useHelper} from "@react-three/drei";
+import {ContactShadows, Html, SpotLight, useCursor, useHelper} from "@react-three/drei";
 import * as THREE from 'three'
 
 
@@ -26,20 +26,17 @@ function FloorLamp() {
                 position={position}
                 intensity={ shiny ? intensity : 0}
                 color="fff"
+                castShadow
             />
 
             <primitive
+                castShadow
                 onPointerOver={() => set(true)} onPointerOut={() => set(false)}
                 onPointerLeave={() => {set(false)} }
                 onClick={() => {setShiny(!shiny)} }
                 object={ floorLamp.scene } scale={.11} position={ aNumber }
             />
-            <ContactShadows
-                position-y={3.4}
-                opacity={.82}
-                scale={5}
-                blur={2.4}
-            />
+
         </>
 
     );
