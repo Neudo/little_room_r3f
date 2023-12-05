@@ -17,8 +17,9 @@ function Desk() {
 
     return (
         <>
-            <primitive castShadow object={ desk.scene } scale={.0047} position={deskPosition} rotation-y={rotation} />
-            <primitive castShadow object={ computerScreen.scene } scale={1.6} position={computerScreenPosition} rotation-y={computerScreenRotation} />
+
+            <primitive  object={ desk.scene } scale={.0047} position={deskPosition} rotation-y={rotation} />
+            <primitive  object={ computerScreen.scene } scale={1.6} position={computerScreenPosition} rotation-y={computerScreenRotation} />
 
 
 

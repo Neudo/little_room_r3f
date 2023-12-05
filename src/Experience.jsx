@@ -10,7 +10,7 @@ export default function Experience()
         <OrbitControls makeDefault />
 
         <Environment preset="apartment" />
-        <color args={['#6f83b2']} attach="background"/>
+        <color args={['#0b1323']} attach="background"/>
 
         <ambientLight
             intensity={.5}
