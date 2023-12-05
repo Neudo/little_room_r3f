@@ -11,7 +11,7 @@ export function FloorLamp(props) {
     useCursor(hovered, /*'pointer', 'auto', document.body*/)
 
     const { position, intensity, distance, angle, attenuation, anglePower, rotation } = useControls({
-        position: [-2.2,2.29,-1.7],
+        position: [-2.2,1.75,-1.7],
         intensity: 18,
     })
 
