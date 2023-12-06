@@ -70,8 +70,8 @@ function Room() {
                      {/*<Chair scale={0.01} position={[1,.19,1]}/>*/}
                 </Select>
             </Selection>
-            <DeskTest/>
-            <DeskBottomRight />
+            <DeskTest scale={1.6} />
+            {/*<DeskBottomRight />*/}
         </>
     );
 }
