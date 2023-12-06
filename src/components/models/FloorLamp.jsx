@@ -31,17 +31,17 @@ export function FloorLamp(props) {
                onClick={() => {setShiny(!shiny)} }
         >
             <mesh
-                castShadow
+
                 geometry={nodes.Object_4.geometry}
                 material={materials.black}
             />
             <mesh
-                castShadow
+
                 geometry={nodes.Object_5.geometry}
                 material={materials.glass_white}
             />
             <mesh
-                castShadow
+
                 geometry={nodes.Object_6.geometry}
                 material={materials.light_bulp}
             />

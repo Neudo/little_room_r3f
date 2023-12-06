@@ -2,7 +2,7 @@ import React, { useState} from 'react';
 import {useTexture} from "@react-three/drei";
 import { EffectComposer, Outline, Select, Selection, ToneMapping} from "@react-three/postprocessing";
 import {FloorLamp} from "./models/FloorLamp.jsx";
-import {DeskTest} from "./models/DeskItems/Desk.jsx";
+import DeskTest from "./models/DeskItems/Desk.jsx";
 import {Chair} from "./models/DeskItems/Chair.jsx";
 import DeskBottomRight from "./models/DeskItems/DeskBottomRight.jsx";
 
@@ -70,8 +70,8 @@ function Room() {
                      {/*<Chair scale={0.01} position={[1,.19,1]}/>*/}
                 </Select>
             </Selection>
-            <DeskTest scale={1.6} />
-            {/*<DeskBottomRight />*/}
+            <DeskTest  />
+            {/*<DeskBottomRight/>*/}
         </>
     );
 }

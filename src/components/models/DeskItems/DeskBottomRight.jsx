@@ -1,9 +1,12 @@
 import React, {useEffect} from 'react';
 import {useAnimations, useGLTF} from "@react-three/drei";
+import {LoopPingPong} from "three";
 
 function DeskBottomRight(props) {
     const deskBottomRight = useGLTF('./glb/desk-bottom-right.glb')
     const animation = useAnimations(deskBottomRight.animations, deskBottomRight.scene)
+
+    console.log("deskBottomRight", animation.actions.OpenDoor)
 
     // useEffect(() =>
     // {
@@ -15,6 +18,7 @@ function DeskBottomRight(props) {
     const openDoor = () => {
         animation.actions.OpenDoor.reset()
         animation.actions.OpenDoor.setLoop(1,1)
+        animation.actions.OpenDoor.clampWhenFinished = true
         animation.actions.OpenDoor.play()
     }
 
