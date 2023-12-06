@@ -2,6 +2,8 @@ import './style.css'
 import ReactDOM from 'react-dom/client'
 import { Canvas } from '@react-three/fiber'
 import Experience from './Experience.jsx'
+import {Suspense} from "react";
+import {Html} from "@react-three/drei";
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 
