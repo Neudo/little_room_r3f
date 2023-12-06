@@ -35,7 +35,6 @@ function DeskTest(props) {
         closeAction.play();
     }
 
-    // ForEach nodes = castShadow = true
     desk.scene.traverse((node) => {
         if (node.isMesh) {
             node.castShadow = true
