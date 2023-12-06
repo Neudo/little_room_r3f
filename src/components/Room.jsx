@@ -4,7 +4,6 @@ import { EffectComposer, Outline, Select, Selection, ToneMapping} from "@react-t
 import {FloorLamp} from "./models/FloorLamp.jsx";
 import DeskTest from "./models/DeskItems/Desk.jsx";
 import {Chair} from "./models/DeskItems/Chair.jsx";
-import DeskBottomRight from "./models/DeskItems/DeskBottomRight.jsx";
 
 
 
@@ -71,7 +70,6 @@ function Room() {
                 </Select>
             </Selection>
             <DeskTest  />
-            {/*<DeskBottomRight/>*/}
         </>
     );
 }

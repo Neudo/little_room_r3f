@@ -1,20 +1,42 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useAnimations, useGLTF} from "@react-three/drei";
+import {LoopOnce} from "three";
 
 
 function DeskTest(props) {
-    const deskBottomRight = useGLTF('./glb/deskWood.glb')
-    const animation = useAnimations(deskBottomRight.animations, deskBottomRight.scene)
+    const desk = useGLTF('./glb/deskWood.glb')
+    const animation = useAnimations(desk.animations, desk.scene)
+    const [deskIsOpen, setDeskIsOpen] = useState(false)
 
+    const handleDesk = () => {
+        if (deskIsOpen) {
+            closeDesk()
+            setDeskIsOpen(false)
+        } else {
+            openDesk()
+            setDeskIsOpen(true)
+        }
+
+    }
     const openDesk = () => {
+        console.log('open desk')
         animation.actions.openDesk.reset()
-        animation.actions.openDesk.setLoop(1,1)
+        animation.actions.openDesk.setLoop(LoopOnce,1)
         animation.actions.openDesk.clampWhenFinished = true
         animation.actions.openDesk.play()
     }
 
+    const closeDesk = () => {
+        console.log('close desk')
+        const originalClip = animation.clips[0];
+        const closeAction = animation.mixer.clipAction(originalClip);
+        closeAction.timeScale = -1;
+        animation.actions.openDesk.stop();
+        closeAction.play();
+    }
+
     // ForEach nodes = castShadow = true
-    deskBottomRight.scene.traverse((node) => {
+    desk.scene.traverse((node) => {
         if (node.isMesh) {
             node.castShadow = true
         }
@@ -23,10 +45,10 @@ function DeskTest(props) {
     return (
         <>
             <primitive
-                object={ deskBottomRight.scene }
+                object={ desk.scene }
                 scale={1.6}
                 rotation-y={-1.4}
-                onClick={() => openDesk()}
+                onClick={() => handleDesk() }
             />
         </>
     );
