@@ -4,10 +4,15 @@ import { EffectComposer, Outline, Select, Selection, ToneMapping} from "@react-t
 import {FloorLamp} from "./models/FloorLamp.jsx";
 import {Chair} from "./models/DeskItems/Chair.jsx";
 import Desk from "./models/DeskItems/Desk.jsx";
+import AnimatedBox from "./test.jsx";
+
 
 
 function Room() {
     const [enabled, setEnabled] = useState(false)
+    const [enabledDesk, setEnabledDesk] = useState(false)
+
+
 
     const beton = "#81817d"
     const floorTextures = useTexture({
@@ -63,10 +68,16 @@ function Room() {
                     <group onPointerEnter={() => setEnabled(true)} onPointerLeave={() => setEnabled(false)}>
                         <FloorLamp scale={.11} position={[ -2.1,0.15,-1.7 ]} />
                     </group>
-                     {/*<Chair scale={0.01} position={[1,.19,1]}/>*/}
+                    {/*<Chair scale={0.01} position={[1,.19,1]}/>*/}
+                </Select>
+                <Select enabled >
+                    <group onPointerEnter={() => setEnabledDesk(true)} onPointerLeave={() => setEnabledDesk(false)}>
+                        <Desk  />
+                    </group>
                 </Select>
             </Selection>
-            <Desk  />
+            {/*<Desk2/>*/}
+            {/*<AnimatedBox/>*/}
         </>
     );
 }
