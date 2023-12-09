@@ -3,8 +3,9 @@ import {useTexture} from "@react-three/drei";
 import { EffectComposer, Outline, Select, Selection, ToneMapping} from "@react-three/postprocessing";
 import {FloorLamp} from "./models/FloorLamp.jsx";
 import {Chair} from "./models/DeskItems/Chair.jsx";
-import Desk from "./models/DeskItems/Desk.jsx";
 import AnimatedBox from "./test.jsx";
+import Desk from "./models/DeskItems/Desk.jsx";
+
 
 
 
@@ -68,15 +69,14 @@ function Room() {
                     <group onPointerEnter={() => setEnabled(true)} onPointerLeave={() => setEnabled(false)}>
                         <FloorLamp scale={.11} position={[ -2.1,0.15,-1.7 ]} />
                     </group>
-                    {/*<Chair scale={0.01} position={[1,.19,1]}/>*/}
+                    <Chair scale={0.01} position={[1,.19,0]}/>
                 </Select>
                 <Select enabled >
                     <group onPointerEnter={() => setEnabledDesk(true)} onPointerLeave={() => setEnabledDesk(false)}>
-                        <Desk  />
+                        <Desk/>
                     </group>
                 </Select>
             </Selection>
-            {/*<Desk2/>*/}
             {/*<AnimatedBox/>*/}
         </>
     );

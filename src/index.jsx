@@ -8,7 +8,7 @@ import {Html} from "@react-three/drei";
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 
 root.render(
-    <StrictMode>
+    // <StrictMode>
         <Canvas
             className="r3f"
             shadows
@@ -21,5 +21,5 @@ root.render(
         >
             <Experience />
         </Canvas>
-    </StrictMode>
+    // </StrictMode>
 )
