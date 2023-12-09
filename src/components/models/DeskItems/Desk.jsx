@@ -78,7 +78,7 @@ export default function Desk(props) {
             <group name="Scene">
                 <group name="Sketchfab_model"
                        rotation={[-Math.PI / 2, 0, -Math.PI * .5]}
-                       position={[2.24, 0, 0]}
+                       position={[1.95, 0, 0]}
                        scale-x={1.5}
                        scale-y={1.9}
                 >

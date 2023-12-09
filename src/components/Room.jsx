@@ -5,6 +5,8 @@ import {FloorLamp} from "./models/FloorLamp.jsx";
 import {Chair} from "./models/DeskItems/Chair.jsx";
 import AnimatedBox from "./test.jsx";
 import Desk from "./models/DeskItems/Desk.jsx";
+import {ComputerScreenRight} from "./models/DeskItems/ComputerScreenRight.jsx";
+import MovaGlob from "./models/DeskItems/movaGlob.jsx";
 
 
 
@@ -78,6 +80,8 @@ function Room() {
                 </Select>
             </Selection>
             {/*<AnimatedBox/>*/}
+            <ComputerScreenRight/>
+            <MovaGlob/>
         </>
     );
 }
