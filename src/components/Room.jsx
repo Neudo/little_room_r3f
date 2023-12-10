@@ -2,12 +2,14 @@ import React, { useState} from 'react';
 import {useTexture} from "@react-three/drei";
 import { EffectComposer, Outline, Select, Selection, ToneMapping} from "@react-three/postprocessing";
 import {FloorLamp} from "./models/FloorLamp.jsx";
-import {Chair} from "./models/DeskItems/Chair.jsx";
 import AnimatedBox from "./test.jsx";
 import Desk from "./models/DeskItems/Desk.jsx";
 import {ComputerScreenRight} from "./models/DeskItems/ComputerScreenRight.jsx";
 import MovaGlob from "./models/DeskItems/movaGlob.jsx";
 import Computer from "./models/DeskItems/Computer.jsx";
+import ComputerScreenLeft from "./models/DeskItems/ComputerScreenLeft.jsx";
+import {OfficeChair} from "./models/DeskItems/office_chair.jsx";
+
 
 
 
@@ -72,7 +74,6 @@ function Room() {
                     <group onPointerEnter={() => setEnabled(true)} onPointerLeave={() => setEnabled(false)}>
                         <FloorLamp scale={.11} position={[ -2.1,0.15,-1.7 ]} />
                     </group>
-                    <Chair scale={0.01} position={[1,.19,0]}/>
                 </Select>
                 <Select enabled >
                     <group onPointerEnter={() => setEnabledDesk(true)} onPointerLeave={() => setEnabledDesk(false)}>
@@ -82,8 +83,10 @@ function Room() {
             </Selection>
             {/*<AnimatedBox/>*/}
             <ComputerScreenRight/>
+            <ComputerScreenLeft/>
             <Computer/>
             <MovaGlob/>
+            <OfficeChair/>
         </>
     );
 }

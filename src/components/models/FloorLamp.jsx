@@ -22,6 +22,7 @@ export function FloorLamp(props) {
                 intensity={ shiny ? intensity : 0}
                 color="fff"
                 castShadow
+                shadow-normalBias={0.05}
             />
 
         <group {...props}
