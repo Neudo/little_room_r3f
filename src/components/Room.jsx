@@ -7,6 +7,7 @@ import AnimatedBox from "./test.jsx";
 import Desk from "./models/DeskItems/Desk.jsx";
 import {ComputerScreenRight} from "./models/DeskItems/ComputerScreenRight.jsx";
 import MovaGlob from "./models/DeskItems/movaGlob.jsx";
+import Computer from "./models/DeskItems/Computer.jsx";
 
 
 
@@ -81,6 +82,7 @@ function Room() {
             </Selection>
             {/*<AnimatedBox/>*/}
             <ComputerScreenRight/>
+            <Computer/>
             <MovaGlob/>
         </>
     );
