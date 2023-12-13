@@ -21,10 +21,8 @@ function Room() {
 
     const beton = "#81817d"
     const boxGeometry = new THREE.BoxGeometry(1,1,1)
-    const wallMaterial = new THREE.MeshStandardMaterial({color: 'slategrey'})
-
-
-
+    const wallMaterial = new THREE.MeshStandardMaterial({color: '#81817d'})
+    const wallDarkMaterial = new THREE.MeshStandardMaterial({color:'#2D2D2B'})
     const floorTextures = useTexture({
             map: './textures/WoodFlooringAshSuperWhite001/WoodFlooringAshSuperWhite001_COL_2K.jpg',
             aoMap: './textures/WoodFlooringAshSuperWhite001/WoodFlooringAshSuperWhite001_AO_2K.jpg',
@@ -36,30 +34,13 @@ function Room() {
 
     return (
         <>
+            {/*Walls*/}
+            <mesh receiveShadow geometry={boxGeometry} scale={[4, 2, .2]} material={wallMaterial} position={[0, .9, -2]}/>
+            <mesh receiveShadow geometry={boxGeometry} scale={[3.8, 1.8, .001]} material={wallDarkMaterial} position={[-0.1, 1, -1.9]}/>
+            <mesh receiveShadow geometry={boxGeometry} scale={[.2, 2, 4]} material={wallMaterial} position={[1.9, .9, 0]}/>
+            <mesh receiveShadow geometry={boxGeometry} scale={[4, .2, 4]} material={wallMaterial}/>
+            <mesh receiveShadow geometry={boxGeometry} scale={[3.999, .018, 3.999]} position={[0, .105, 0]}><meshStandardMaterial {...floorTextures}/></mesh>
 
-            <mesh receiveShadow position={ [0, .9, -2] }>
-                <boxGeometry args={ [5.50,2,.2] } />
-                <meshStandardMaterial color={beton} />
-            </mesh>
-            <mesh receiveShadow position={ [0,1, -1.9] }>
-                <boxGeometry args={ [5.5,1.8,.001] } />
-                <meshStandardMaterial color="#2D2D2B" />
-            </mesh>
-
-            <mesh receiveShadow position={ [2.65,.9,0] }>
-                <boxGeometry args={ [.2,2,4] } />
-                <meshStandardMaterial color={beton} />
-            </mesh>
-
-            <mesh receiveShadow position={ [0,.105,0] }>
-                <boxGeometry args={ [5.499,.018,3.999] } />
-                <meshStandardMaterial {...floorTextures}/>
-            </mesh>
-
-            <mesh receiveShadow >
-                <boxGeometry args={ [5.5,.2,4] } />
-                <meshStandardMaterial color={beton} />
-            </mesh>
 
             <Selection>
                 <EffectComposer
@@ -74,12 +55,12 @@ function Room() {
                     />
                     <ToneMapping/>
                 </EffectComposer>
-                <Select enabled >
+                <Select enabled>
                     <group onPointerEnter={() => setEnabled(true)} onPointerLeave={() => setEnabled(false)}>
-                        <FloorLamp scale={.11} position={[ -2.1,0.15,-1.7 ]} />
+                        <FloorLamp scale={.11} position={[-1.4, 0.15, -1.7]}/>
                     </group>
                 </Select>
-                <Select enabled >
+                <Select enabled>
                     <group onPointerEnter={() => setEnabledDesk(true)} onPointerLeave={() => setEnabledDesk(false)}>
                         <Desk/>
                     </group>
