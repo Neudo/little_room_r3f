@@ -74,7 +74,7 @@ export default function Experience()
         <Stars
             fade={true}
           saturation={100}
-            count={3000}
+            count={2000}
             depth={20}
         />
         <Room/>

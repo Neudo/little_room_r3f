@@ -2,13 +2,14 @@ import React, { useState} from 'react';
 import {useTexture} from "@react-three/drei";
 import { EffectComposer, Outline, Select, Selection, ToneMapping} from "@react-three/postprocessing";
 import {FloorLamp} from "./models/FloorLamp.jsx";
-import AnimatedBox from "./test.jsx";
 import Desk from "./models/DeskItems/Desk.jsx";
 import {ComputerScreenRight} from "./models/DeskItems/ComputerScreenRight.jsx";
 import MovaGlob from "./models/DeskItems/movaGlob.jsx";
 import Computer from "./models/DeskItems/Computer.jsx";
 import ComputerScreenLeft from "./models/DeskItems/ComputerScreenLeft.jsx";
 import {OfficeChair} from "./models/DeskItems/office_chair.jsx";
+import {Keyboard} from "./models/DeskItems/Keyboard.jsx";
+import * as THREE from "three"
 
 
 
@@ -18,9 +19,12 @@ function Room() {
     const [enabled, setEnabled] = useState(false)
     const [enabledDesk, setEnabledDesk] = useState(false)
 
-
-
     const beton = "#81817d"
+    const boxGeometry = new THREE.BoxGeometry(1,1,1)
+    const wallMaterial = new THREE.MeshStandardMaterial({color: 'slategrey'})
+
+
+
     const floorTextures = useTexture({
             map: './textures/WoodFlooringAshSuperWhite001/WoodFlooringAshSuperWhite001_COL_2K.jpg',
             aoMap: './textures/WoodFlooringAshSuperWhite001/WoodFlooringAshSuperWhite001_AO_2K.jpg',
@@ -84,6 +88,7 @@ function Room() {
             {/*<AnimatedBox/>*/}
             <ComputerScreenRight/>
             <ComputerScreenLeft/>
+            <Keyboard/>
             <Computer/>
             <MovaGlob/>
             <OfficeChair/>
