@@ -19,7 +19,7 @@ export function ComputerScreenRight(props) {
                     receiveShadow
                     geometry={nodes.Cube_0.geometry}
                     material={materials.Plastic}
-                    position={[2.13, 1.08, .7]}
+                    position={[1.33, 1.08, .7]}
                     rotation-x={Math.PI * 1.5}
                     rotation-z={Math.PI / .75}
                     scale={1.4}

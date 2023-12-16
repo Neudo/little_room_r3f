@@ -14,7 +14,7 @@ export function OfficeChair(props) {
     return (
         <group {...props} dispose={null}>
             <group
-                position={[1, 0.16, -0.25]}
+                position={[.5, 0.16, -0.25]}
                 rotation={[-Math.PI / 2, 0, -Math.PI * 1.59]}
                 scale={0.967}
             >

@@ -6,6 +6,7 @@ import React, {useEffect, useRef, useState} from "react";
 import {useGLTF, useAnimations, Outlines, useCursor} from "@react-three/drei";
 import {LoopOnce} from "three";
 import {useFrame} from "@react-three/fiber";
+import * as THREE from "three";
 
 
 export default function Desk(props) {
@@ -16,6 +17,10 @@ export default function Desk(props) {
     const [deskUpperIsOpen, setDeskUpperIsOpen] = useState(false);
     const [deskIsHovered, setDeskIsHovered] = useState(false);
     const upperDeskRef = useRef();
+
+    const wallDarkMaterial = new THREE.MeshStandardMaterial({color:'#1e1e1e'})
+    const deskDoors = new THREE.MeshStandardMaterial({color:'#FFF'})
+
 
 
     useEffect(() => {
@@ -78,9 +83,9 @@ export default function Desk(props) {
             <group name="Scene">
                 <group name="Sketchfab_model"
                        rotation={[-Math.PI / 2, 0, -Math.PI * .5]}
-                       position={[1.95, 0, 0]}
+                       position={[1.25, 0, 0]}
                        scale-x={1.5}
-                       scale-y={1.9}
+                       scale-y={1.5}
                 >
                     <group name="root">
                         <group name="GLTF_SceneRootNode" rotation={[Math.PI / 2, 0, 0]}>
@@ -90,7 +95,8 @@ export default function Desk(props) {
                                     castShadow
                                     receiveShadow
                                     geometry={nodes.Object_4.geometry}
-                                    material={materials.TBL0003_Desk}
+                                    material={wallDarkMaterial}
+                                    // material={materials.TBL0003_Desk}
                                 />
                             </group>
                             <group name="#TBL0003_Door_2" position={[0.697, 0.233, 0.265]}>
@@ -111,6 +117,7 @@ export default function Desk(props) {
                                     castShadow
                                     receiveShadow
                                     geometry={nodes.Object_6.geometry}
+                                    // material={materials.TBL0003_Desk}
                                     material={materials.TBL0003_Desk}
                                     onClick={handleUpperDesk}
                                     ref={upperDeskRef}

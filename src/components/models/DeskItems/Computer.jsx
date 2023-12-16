@@ -9,7 +9,7 @@ function Computer(props) {
             <primitive
                 object={computer.scene}
                 scale={.093}
-                position={[2.05, .1, 0.15]}
+                position={[1.5, .1, 0.15]}
                 rotation={[0, -1.55, 0]}
             />
         </>

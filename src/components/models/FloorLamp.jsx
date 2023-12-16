@@ -31,16 +31,8 @@ export function FloorLamp(props) {
                onPointerLeave={() => {set(false)} }
                onClick={() => {setShiny(!shiny)} }
         >
-            <mesh
-
-                geometry={nodes.Object_4.geometry}
-                material={materials.black}
-            />
-            <mesh
-
-                geometry={nodes.Object_5.geometry}
-                material={materials.glass_white}
-            />
+            <mesh geometry={nodes.Object_4.geometry} material={materials.black}/>
+            <mesh geometry={nodes.Object_5.geometry} material={materials.glass_white}/>
             <mesh
 
                 geometry={nodes.Object_6.geometry}

@@ -9,7 +9,7 @@ function ComputerScreenLeft(props) {
             <primitive
                 object={computerScreenLeft.scene}
                 scale={1.2}
-                position={[2.25, 1.135, -0.15]}
+                position={[1.5, 1.135, -0.15]}
                 rotation={[0, Math.PI / 1, 0]}
             />
         </>

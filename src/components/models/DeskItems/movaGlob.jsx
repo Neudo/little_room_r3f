@@ -18,7 +18,7 @@ function MovaGlob(props) {
 
     const { positionMova, rotationMova, scaleMova } = useControls({
         positionMova: {
-            value: [2.3, .78, -0.7],
+            value: [1.55, .78, -0.7],
             step: 0.01,
             min: -10,
             max: 10,
@@ -51,7 +51,7 @@ function MovaGlob(props) {
             >
             <mesh
                 scale={.02}
-                position={[2.3, .84, -0.7]}
+                position={[1.55, .84, -0.7]}
                 ref={globRef}
             >
                 <sphereGeometry args={[3, 32, 32]}/>

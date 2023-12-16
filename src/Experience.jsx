@@ -1,4 +1,4 @@
-import {Environment, OrbitControls, Sky, Stars} from '@react-three/drei'
+import {Cloud, Clouds, Environment, OrbitControls, Sky, Stars} from '@react-three/drei'
 import Room from "./components/Room.jsx";
 import {Perf} from "r3f-perf";
 import {useControls} from "leva";
@@ -75,8 +75,12 @@ export default function Experience()
             fade={true}
           saturation={100}
             count={2000}
-            depth={20}
+            depth={40}
         />
+        {/*Pour l'intro => départ à partir du nuage puis déplacement de la caméra sur la room*/}
+        {/*<Cloud*/}
+        {/*    position={[-6,6,6]}*/}
+        {/*    scale={.5}/>*/}
         <Room/>
     </>
 }

@@ -10,8 +10,8 @@ import ComputerScreenLeft from "./models/DeskItems/ComputerScreenLeft.jsx";
 import {OfficeChair} from "./models/DeskItems/office_chair.jsx";
 import {Keyboard} from "./models/DeskItems/Keyboard.jsx";
 import * as THREE from "three"
-
-
+import Shelf from "./models/Shelf.jsx";
+import {Windows} from "./models/Windows.jsx";
 
 
 
@@ -35,44 +35,37 @@ function Room() {
     return (
         <>
             {/*Walls*/}
-            <mesh receiveShadow geometry={boxGeometry} scale={[4, 2, .2]} material={wallMaterial} position={[0, .9, -2]}/>
-            <mesh receiveShadow geometry={boxGeometry} scale={[3.8, 1.8, .001]} material={wallDarkMaterial} position={[-0.1, 1, -1.9]}/>
-            <mesh receiveShadow geometry={boxGeometry} scale={[.2, 2, 4]} material={wallMaterial} position={[1.9, .9, 0]}/>
-            <mesh receiveShadow geometry={boxGeometry} scale={[4, .2, 4]} material={wallMaterial}/>
-            <mesh receiveShadow geometry={boxGeometry} scale={[3.999, .018, 3.999]} position={[0, .105, 0]}><meshStandardMaterial {...floorTextures}/></mesh>
+            <mesh receiveShadow geometry={boxGeometry} scale={[4, 2.5, .2]} material={wallMaterial} position={[0, 1.2, -2]}/>
+            <mesh receiveShadow geometry={boxGeometry} scale={[3.8, 2.5, .001]} material={wallDarkMaterial} position={[-0.1, 1.2, -1.9]}/>
+            <mesh receiveShadow geometry={boxGeometry} scale={[.2, 2.5, 4.1]} material={wallMaterial} position={[1.9, 1.2, 0.05]}/>
+            <mesh receiveShadow geometry={boxGeometry} scale={[4, .2, 4.2]} material={wallMaterial}/>
+            <mesh receiveShadow geometry={boxGeometry} scale={[3.999, .018, 4.199]} position={[0, .105, 0]}><meshStandardMaterial {...floorTextures}/></mesh>
+            <Windows/>
 
 
-            <Selection>
-                <EffectComposer
-                    enabled={enabled}
-                    autoClear={false}
-                >
-                    <Outline
-                        blur
-                        edgeStrength={5}
-                        pulseSpeed={.3}
+            <group onPointerEnter={() => setEnabled(true)} onPointerLeave={() => setEnabled(false)}>
+                <FloorLamp scale={.11} position={[-1.4, 0.15, -1.7]}/>
+            </group>
 
-                    />
-                    <ToneMapping/>
-                </EffectComposer>
-                <Select enabled>
-                    <group onPointerEnter={() => setEnabled(true)} onPointerLeave={() => setEnabled(false)}>
-                        <FloorLamp scale={.11} position={[-1.4, 0.15, -1.7]}/>
-                    </group>
-                </Select>
-                <Select enabled>
-                    <group onPointerEnter={() => setEnabledDesk(true)} onPointerLeave={() => setEnabledDesk(false)}>
-                        <Desk/>
-                    </group>
-                </Select>
-            </Selection>
-            {/*<AnimatedBox/>*/}
-            <ComputerScreenRight/>
-            <ComputerScreenLeft/>
-            <Keyboard/>
-            <Computer/>
-            <MovaGlob/>
-            <OfficeChair/>
+            <group position={[0,0,-.5]}>
+                <Desk/>
+                <ComputerScreenRight/>
+                <ComputerScreenLeft/>
+                <Keyboard/>
+                <Computer/>
+                <MovaGlob/>
+                <OfficeChair/>
+            </group>
+
+            <Shelf/>
+
+
+
+
+
+
+
+
         </>
     );
 }
