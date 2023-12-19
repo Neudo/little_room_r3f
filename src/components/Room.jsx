@@ -12,6 +12,8 @@ import {Keyboard} from "./models/DeskItems/Keyboard.jsx";
 import * as THREE from "three"
 import Shelf from "./models/Shelf.jsx";
 import {Windows} from "./models/Windows.jsx";
+import Test from "./test.jsx";
+
 
 
 
@@ -23,6 +25,7 @@ function Room() {
     const boxGeometry = new THREE.BoxGeometry(1,1,1)
     const wallMaterial = new THREE.MeshStandardMaterial({color: '#81817d'})
     const wallDarkMaterial = new THREE.MeshStandardMaterial({color:'#2D2D2B'})
+    const testMaterial = new THREE.MeshStandardMaterial({color: 'rgba(53,107,79,0.42)', metalness: 1, roughness: 0})
     const floorTextures = useTexture({
             map: './textures/WoodFlooringAshSuperWhite001/WoodFlooringAshSuperWhite001_COL_2K.jpg',
             aoMap: './textures/WoodFlooringAshSuperWhite001/WoodFlooringAshSuperWhite001_AO_2K.jpg',
@@ -32,16 +35,22 @@ function Room() {
         }
     )
 
+
     return (
         <>
             {/*Walls*/}
             <mesh receiveShadow geometry={boxGeometry} scale={[4, 2.5, .2]} material={wallMaterial} position={[0, 1.2, -2]}/>
             <mesh receiveShadow geometry={boxGeometry} scale={[3.8, 2.5, .001]} material={wallDarkMaterial} position={[-0.1, 1.2, -1.9]}/>
+            {/*Wall with hole*/}
             <mesh receiveShadow geometry={boxGeometry} scale={[.2, 2.5, 4.1]} material={wallMaterial} position={[1.9, 1.2, 0.05]}/>
+            <mesh receiveShadow geometry={boxGeometry} scale={[.5, 1.5, 1.3]} material={testMaterial} position={[1.9, 1.5, 0.85]}/>
+
+            <Test/>
+
+
             <mesh receiveShadow geometry={boxGeometry} scale={[4, .2, 4.2]} material={wallMaterial}/>
             <mesh receiveShadow geometry={boxGeometry} scale={[3.999, .018, 4.199]} position={[0, .105, 0]}><meshStandardMaterial {...floorTextures}/></mesh>
             <Windows/>
-
 
             <group onPointerEnter={() => setEnabled(true)} onPointerLeave={() => setEnabled(false)}>
                 <FloorLamp scale={.11} position={[-1.4, 0.15, -1.7]}/>

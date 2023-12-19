@@ -1,40 +1,66 @@
-import {useFrame} from "@react-three/fiber";
-import {lerp} from "three/src/math/MathUtils.js";
-import {useRef} from "react";
-
-export default function AnimatedBox() {
-
-
-
-    const targetPosition = { x: 2, y: 5, z: 0 };
-    let currentPosition = { x:-2, y: 0, z: 0 };
-    let targetRotation = { x: 5, y: 2, z: 1 };
-    let currentRotation = { x: 0, y: 0, z: 0 };
-    let mesh = useRef();
+import React, {Suspense, useEffect, useRef} from 'react';
+import { Box } from '@react-three/drei';
+import * as THREE from 'three';
+const Test = () => {
+    const buildingRef = useRef();
+    const windowRef = useRef();
+    const [firstRender, setFirstRender] = React.useState(true);
 
 
-    useFrame(() => {
-        // Interpolate between current position and target position
-        // currentPosition.x = lerp(currentPosition.x, targetPosition.x, 0.005);
-        // currentPosition.y = lerp(currentPosition.y, targetPosition.y, 0.005);
-        // currentPosition.z = lerp(currentPosition.z, targetPosition.z, 0.005);
-        //
-        // currentRotation.x = lerp(currentRotation.x, targetRotation.x, 0.005);
-        // currentRotation.y = lerp(currentRotation.y, targetRotation.y, 0.005);
-        // currentRotation.z = lerp(currentRotation.z, targetRotation.z, 0.005);
-        //
-        // // Update the rotation of the object
-        // mesh.current.rotation.set(currentRotation.x, currentRotation.y, currentRotation.z);
-        //
-        // // Update the position of the object
-        // mesh.current.position.set(currentPosition.x, currentPosition.y, currentPosition.z);
+    useEffect(() => {
+        if (firstRender) {
+        const width = buildingRef.current.geometry.parameters.width * 0.5;
+        const height = buildingRef.current.geometry.parameters.height * 0.5;
+        const depth = buildingRef.current.geometry.parameters.depth * 0.5;
 
+        const shape = new THREE.Shape();
+        shape.moveTo(-width, height);
+        shape.lineTo(-width, -height);
+        shape.lineTo(width, -height);
+        shape.lineTo(width, height);
+        shape.lineTo(-width, height);
 
-        mesh.current.rotation.z += 0.001;
-    });
+        const wWidth = windowRef.current.geometry.parameters.width * 0.5;
+        const wHeight = windowRef.current.geometry.parameters.height * 0.5;
 
-    return <mesh ref={mesh} >
-        <boxGeometry args={[1, 1, 1]} />
-        <meshStandardMaterial color="hotpink" />
-    </mesh>;
-}
+        const hole = new THREE.Path();
+        hole.moveTo(-wWidth, wHeight);
+        hole.lineTo(-wWidth, -wHeight);
+        hole.lineTo(wWidth, -wHeight);
+        hole.lineTo(wWidth, wHeight);
+        hole.lineTo(-wWidth, wHeight);
+
+        shape.holes.push(hole);
+
+        const extrudeSettings = {
+            amount: depth * 2,
+            bevelEnabled: false,
+        };
+
+        const extrudeGeometry = new THREE.ExtrudeGeometry(shape, extrudeSettings);
+        extrudeGeometry.translate(0, 0, -depth);
+
+        buildingRef.current.geometry.dispose();
+        buildingRef.current.geometry = extrudeGeometry;
+
+        setFirstRender(false);
+        } else {
+            return
+        }
+
+    }, []);
+
+    return (
+        <>
+            <Box args={[5, 2, 0.25]} position={[3,-2,1]} ref={buildingRef}>
+                <meshStandardMaterial color="gray" />
+            </Box>
+
+            <Box args={[1, 1, 1.25]} position={[3, -2, 1]} ref={windowRef}>
+                <meshStandardMaterial color="brown" transparent opacity={0} />
+            </Box>
+        </>
+    );
+};
+
+export default Test;
