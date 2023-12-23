@@ -19,7 +19,7 @@ export default function Desk(props) {
     const upperDeskRef = useRef();
 
     const wallDarkMaterial = new THREE.MeshStandardMaterial({color:'#1e1e1e'})
-    const deskDoors = new THREE.MeshStandardMaterial({color:'#FFF'})
+
 
 
 

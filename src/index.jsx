@@ -4,6 +4,7 @@ import { Canvas } from '@react-three/fiber'
 import Experience from './Experience.jsx'
 import {StrictMode, Suspense} from "react";
 import {Html} from "@react-three/drei";
+import {Physics} from "@react-three/rapier";
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 
@@ -19,7 +20,9 @@ root.render(
                 position: [ -3, 1.5, 4 ]
             } }
         >
+            <Physics>
             <Experience />
+            </Physics>
         </Canvas>
     // </StrictMode>
 )

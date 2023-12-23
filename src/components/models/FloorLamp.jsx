@@ -20,7 +20,7 @@ export function FloorLamp(props) {
             <pointLight
                 position={position}
                 intensity={ shiny ? intensity : 0}
-                color="fff"
+                color="white"
                 castShadow
                 shadow-normalBias={0.05}
             />

@@ -33,12 +33,12 @@ const Test = () => {
         shape.holes.push(hole);
 
         const extrudeSettings = {
-            amount: depth * 2,
+            amount: depth *20 ,
             bevelEnabled: false,
         };
 
         const extrudeGeometry = new THREE.ExtrudeGeometry(shape, extrudeSettings);
-        extrudeGeometry.translate(0, 0, -depth);
+        extrudeGeometry.translate(0, 0, depth);
 
         buildingRef.current.geometry.dispose();
         buildingRef.current.geometry = extrudeGeometry;
@@ -50,15 +50,30 @@ const Test = () => {
 
     }, []);
 
+
     return (
         <>
-            <Box args={[5, 2, 0.25]} position={[3,-2,1]} ref={buildingRef}>
-                <meshStandardMaterial color="gray" />
-            </Box>
+            {/*<group rotation-y={Math.PI *.5} >*/}
+            {/*<Box args={[3, 2, 0.25]} position={[-2.9, 1.2, 2.05]} ref={buildingRef}>*/}
+            {/*    <meshStandardMaterial color="gray" />*/}
+            {/*</Box>*/}
 
-            <Box args={[1, 1, 1.25]} position={[3, -2, 1]} ref={windowRef}>
-                <meshStandardMaterial color="brown" transparent opacity={0} />
-            </Box>
+            {/*<Box args={[1, 1, 1.25]} position={[-2.9, 1.5, 2.85]} ref={windowRef}>*/}
+            {/*    <meshStandardMaterial color="brown" transparent opacity={0} />*/}
+            {/*</Box>*/}
+            {/*</group>*/}
+
+            <mesh ref={buildingRef} position={[3, -2, 1]}>
+                <boxGeometry args={[0.2, 2.5, 4.1]}/>
+                <meshStandardMaterial color="gray" />
+            </mesh>
+
+            <mesh ref={windowRef} position={[3, -2, 1]}>
+                <boxGeometry args={[0.5, 1.5, 1.3]}/>
+                <meshStandardMaterial color="brown"  opacity={0.4}/>
+            </mesh>
+
+
         </>
     );
 };
